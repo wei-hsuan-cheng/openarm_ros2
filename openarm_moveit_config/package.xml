@@ -4,7 +4,7 @@
   <name>openarm_moveit_config</name>
   <version>0.3.0</version>
   <description>
-     An automatically generated package with all the configuration and launch files for using the openarm_grip with the MoveIt Motion Planning Framework
+     Configuration and launch files for using OpenArm with the MoveIt Motion Planning Framework
   </description>
   <maintainer email="t95zhou@uwaterloo.ca">Thomason Zhou</maintainer>
 

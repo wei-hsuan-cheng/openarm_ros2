@@ -3,7 +3,7 @@
 <package format="3">
 <name>openarm_grip_description</name>
   <version>0.0.0</version>
-<description>The openarm_grip_description package</description>
+<description>URDF models for OpenArm</description>
   <maintainer email="t95zhou@uwaterloo.ca">Thomason Zhou</maintainer>
   <license>BSD-3-Clause</license>
 
