@@ -285,7 +285,7 @@
   <limit upper="0.0" lower="-0.0455" effort="100" velocity="1.0" acceleration="0.5"/>
 </joint>
 
-<joint name="slider_left" type="prismatic">
+<joint name="slider_right" type="prismatic">
   <origin xyz="0.0775 -0.121655 0.012086" rpy="0 0 0"/>
   <parent link="grip_attach_1"/>
   <child link="right_jaw_1"/>

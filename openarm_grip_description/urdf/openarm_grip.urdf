@@ -422,7 +422,7 @@
     <axis xyz="-1.0 0.0 -0.0"/>
     <limit acceleration="0.5" effort="100" lower="-0.0455" upper="0.0" velocity="1.0"/>
   </joint>
-  <joint name="slider_left" type="prismatic">
+  <joint name="slider_right" type="prismatic">
     <origin rpy="0 0 0" xyz="0.0775 -0.121655 0.012086"/>
     <parent link="grip_attach_1"/>
     <child link="right_jaw_1"/>
