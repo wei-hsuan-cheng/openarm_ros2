@@ -291,6 +291,7 @@
   <child link="right_jaw_1"/>
   <axis xyz="1.0 -0.0 0.0"/>
   <limit upper="0.0" lower="-0.0455" effort="100" velocity="1.0" acceleration="0.5"/>
+  <mimic joint="slider_left"/>
 </joint>
 
 </robot>
