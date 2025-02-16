@@ -23,7 +23,6 @@ Visualization Manager:
         Interactive Marker Size: 0.1
         Planning Group: openarm_arm
         Query Goal State: true
-        Query Start State: true
       Planning Scene Topic: monitored_planning_scene
       Robot Description: robot_description
       Scene Geometry:
