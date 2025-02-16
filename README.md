@@ -1,15 +1,14 @@
-# ROS2 integration for OpenArm robots
+# ROS2 packages for OpenArm robots
 
 - openarm_grip_description: urdf with gripper actuator
 - openarm_moveit_config: motion planning with [moveit2](https://github.com/moveit/moveit2)
 
-
-
 https://github.com/user-attachments/assets/a0f962e5-6150-49ce-b18e-9914bcb322ef
 
 Tested with:
-- [x] Jazzy Jalisco
-- [ ] Humble Hawksbill
+- [x] Rolling
+- [x] Jazzy
+- [x] Humble
 
 ## License
 
