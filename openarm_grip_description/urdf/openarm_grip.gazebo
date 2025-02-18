@@ -4,7 +4,7 @@
 <xacro:property name="body_color" value="Gazebo/Silver" />
 
 <gazebo>
-  <plugin name="control" filename="libgazebo_ros_control.so"/>
+  <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="gz_ros2_control-system"/>
 </gazebo>
 <gazebo reference="base_link">
   <material>${body_color}</material>
