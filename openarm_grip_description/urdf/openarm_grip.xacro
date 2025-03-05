@@ -276,11 +276,12 @@
   <dynamics damping="1.0" friction="1.0"/>
 </joint>
 
-<joint name="rev7" type="continuous">
+<joint name="rev7" type="revolute">
   <origin xyz="-0.0355 0.00303 0.01515" rpy="0 0 0"/>
   <parent link="J7_v1_1"/>
   <child link="grip_attach_1"/>
   <axis xyz="0.0 0.196078 0.980588"/>
+  <limit upper="0.5" lower="-0.5" effort="100" velocity="1.0" acceleration="0.5"/>
   <dynamics damping="1.0" friction="1.0"/>
 </joint>
 
