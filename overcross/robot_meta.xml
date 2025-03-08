@@ -11,7 +11,7 @@
  <controllersConfigFileName>openarm_controllers.yaml</controllersConfigFileName>
  <joints>
   <joint>
-   <name>l_J1_v002__to__l_J2_v002</name>
+   <name>rev1</name>
    <jointSpecific>unset</jointSpecific>
    <jointRotationDirection>unset</jointRotationDirection>
    <jointRelTotalCenterOfMass_x>0.09289716518533317</jointRelTotalCenterOfMass_x>
@@ -19,7 +19,7 @@
    <jointRelTotalCenterOfMass_z>-0.061900576071863</jointRelTotalCenterOfMass_z>
   </joint>
   <joint>
-   <name>l_J2_v002__to__l_J3_v003</name>
+   <name>rev2</name>
    <jointSpecific>unset</jointSpecific>
    <jointRotationDirection>unset</jointRotationDirection>
    <jointRelTotalCenterOfMass_x>0.09289716518533321</jointRelTotalCenterOfMass_x>
@@ -27,7 +27,7 @@
    <jointRelTotalCenterOfMass_z>-0.017150576071863013</jointRelTotalCenterOfMass_z>
   </joint>
   <joint>
-   <name>l_J3_v003__to__l_J4_v002</name>
+   <name>rev3</name>
    <jointSpecific>unset</jointSpecific>
    <jointRotationDirection>unset</jointRotationDirection>
    <jointRelTotalCenterOfMass_x>0.031649514284448864</jointRelTotalCenterOfMass_x>
@@ -35,7 +35,7 @@
    <jointRelTotalCenterOfMass_z>-0.01661414422754956</jointRelTotalCenterOfMass_z>
   </joint>
   <joint>
-   <name>l_J4_v002__to__l_J5_v003</name>
+   <name>rev4</name>
    <jointSpecific>unset</jointSpecific>
    <jointRotationDirection>unset</jointRotationDirection>
    <jointRelTotalCenterOfMass_x>-0.20983062047238518</jointRelTotalCenterOfMass_x>
@@ -43,7 +43,7 @@
    <jointRelTotalCenterOfMass_z>-0.016614144227858844</jointRelTotalCenterOfMass_z>
   </joint>
   <joint>
-   <name>l_J5_v003__to__l_J6_v002</name>
+   <name>rev5</name>
    <jointSpecific>unset</jointSpecific>
    <jointRotationDirection>unset</jointRotationDirection>
    <jointRelTotalCenterOfMass_x>-0.08488103444256599</jointRelTotalCenterOfMass_x>
@@ -51,7 +51,7 @@
    <jointRelTotalCenterOfMass_z>0.030965376793060356</jointRelTotalCenterOfMass_z>
   </joint>
   <joint>
-   <name>l_J6_v002__to__l_J7_v002</name>
+   <name>rev6</name>
    <jointSpecific>unset</jointSpecific>
    <jointRotationDirection>unset</jointRotationDirection>
    <jointRelTotalCenterOfMass_x>0.02795991840243387</jointRelTotalCenterOfMass_x>
@@ -59,7 +59,7 @@
    <jointRelTotalCenterOfMass_z>0.07396277148947943</jointRelTotalCenterOfMass_z>
   </joint>
   <joint>
-   <name>l_J7_v002__to__l_J8_v002</name>
+   <name>rev7</name>
    <jointSpecific>unset</jointSpecific>
    <jointRotationDirection>unset</jointRotationDirection>
    <jointRelTotalCenterOfMass_x>0.033758514926782335</jointRelTotalCenterOfMass_x>
@@ -67,7 +67,7 @@
    <jointRelTotalCenterOfMass_z>0.05952028198168136</jointRelTotalCenterOfMass_z>
   </joint>
   <joint>
-   <name>l_J8_v002__to__l_right_jaw_v002</name>
+   <name>gripper_right_jaw</name>
    <jointSpecific>unset</jointSpecific>
    <jointRotationDirection>unset</jointRotationDirection>
    <jointRelTotalCenterOfMass_x>0.0</jointRelTotalCenterOfMass_x>
@@ -75,7 +75,7 @@
    <jointRelTotalCenterOfMass_z>0.0</jointRelTotalCenterOfMass_z>
   </joint>
   <joint>
-   <name>l_J8_v002__to__l_left_jaw_v002</name>
+   <name>gripper_left_jaw</name>
    <jointSpecific>unset</jointSpecific>
    <jointRotationDirection>unset</jointRotationDirection>
    <jointRelTotalCenterOfMass_x>0.0</jointRelTotalCenterOfMass_x>

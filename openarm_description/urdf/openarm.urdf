@@ -211,64 +211,64 @@
       <inertia ixx="1.17717687429e-05" ixy="-2.3899281666e-06" ixz="3.9992922045e-06" iyy="2.38373544808e-05" iyz="3.494431877e-07" izz="3.04745902141e-05"/>
     </inertial>
   </link>
-  <joint name="l_J1_v002__to__l_J2_v002" type="revolute">
+  <joint name="rev1" type="revolute">
     <parent link="l_J1_v002"/>
     <child link="l_J2_v002"/>
     <origin rpy="0 0 0" xyz="0.0 0.0 0.05395"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.0" lower="-2.356194490192345" upper="2.356194490192345" velocity="0.0"/>
   </joint>
-  <joint name="l_J2_v002__to__l_J3_v003" type="revolute">
+  <joint name="rev2" type="revolute">
     <parent link="l_J2_v002"/>
     <child link="l_J3_v003"/>
     <origin rpy="-1.5707963267948977 1.5707963267948957 0" xyz="0.0 -0.02975 0.04475"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="0.0"/>
   </joint>
-  <joint name="l_J3_v003__to__l_J4_v002" type="revolute">
+  <joint name="rev3" type="revolute">
     <parent link="l_J3_v003"/>
     <child link="l_J4_v002"/>
     <origin rpy="1.5707963267949046 0 1.5795545096892487" xyz="-0.0612477 -0.000536432 0.02975"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.0" lower="-2.0943951023931953" upper="2.0943951023931953" velocity="0.0"/>
   </joint>
-  <joint name="l_J4_v002__to__l_J5_v003" type="revolute">
+  <joint name="rev4" type="revolute">
     <parent link="l_J4_v002"/>
     <child link="l_J5_v003"/>
     <origin rpy="0.7854173400827703 -1.5584104649378014 0.7854173400871975" xyz="-0.0021149 -0.0318708 -0.241471"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.0" lower="-0.3490658503988659" upper="2.792526803190927" velocity="0.0"/>
   </joint>
-  <joint name="l_J5_v003__to__l_J6_v002" type="revolute">
+  <joint name="rev5" type="revolute">
     <parent link="l_J5_v003"/>
     <child link="l_J6_v002"/>
     <origin rpy="1.5707963267949707 -0.5569332500522621 1.5567303253381135" xyz="-0.133937 0.00188408 -0.0297547"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.0" lower="-2.0943951023931953" upper="2.0943951023931953" velocity="0.0"/>
   </joint>
-  <joint name="l_J6_v002__to__l_J7_v002" type="revolute">
+  <joint name="rev6" type="revolute">
     <parent link="l_J6_v002"/>
     <child link="l_J7_v002"/>
     <origin rpy="-1.5707963268025373 -1.5567303253381704 -0.5569332500438752" xyz="-0.0187648 -0.0301352 -0.12105"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="0.0"/>
   </joint>
-  <joint name="l_J7_v002__to__l_J8_v002" type="revolute">
+  <joint name="rev7" type="revolute">
     <parent link="l_J7_v002"/>
     <child link="l_J8_v002"/>
     <origin rpy="-1.570796326795002 -0.008759049335348993 -0.014066001454933549" xyz="-0.000217313 -0.0154485 0.0355"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.0" lower="-0.9599310885968813" upper="0.9599310885968813" velocity="0.0"/>
   </joint>
-  <joint name="l_J8_v002__to__l_right_jaw_v002" type="prismatic">
+  <joint name="gripper_right_jaw" type="prismatic">
     <parent link="l_J8_v002"/>
     <child link="l_right_jaw_v002"/>
     <origin rpy="1.570796326794885 -0.014066001454926544 0.008759049336297665" xyz="-0.10571 -0.0781373 0.0132053"/>
     <axis xyz="0 0 1"/>
     <limit effort="0.0" lower="0.0" upper="0.045" velocity="0.0"/>
-    <mimic joint="l_J8_v002__to__l_left_jaw_v002" multiplier="-1.0" offset="0.0"/>
+    <mimic joint="gripper_left_jaw" multiplier="-1.0" offset="0.0"/>
   </joint>
-  <joint name="l_J8_v002__to__l_left_jaw_v002" type="prismatic">
+  <joint name="gripper_left_jaw" type="prismatic">
     <parent link="l_J8_v002"/>
     <child link="l_left_jaw_v002"/>
     <origin rpy="1.5707963267948268 -0.014066001454925883 0.00875904933451695" xyz="-0.1071 0.07686 0.0132053"/>
