@@ -21,6 +21,6 @@
   <joint name="left_fix1" type="fixed">
     <parent link="pedestal_link"/>
     <child link="left_link1"/>
-    <origin rpy="3.0186531925068127 -1.5707963267948268 0.12293946108298068" xyz="-0.09 0.0 0.893"/>
+    <origin rpy="${3.0186531925068127 + pi} -1.5707963267948268 0.12293946108298068" xyz="-0.09 0.0 0.893"/>
   </joint>
 </robot>

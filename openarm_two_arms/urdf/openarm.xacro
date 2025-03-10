@@ -8,7 +8,7 @@
 
 
     <xacro:macro name="openarm" params="side prefix">
-        <xacro:property name="reflect" value ="${ 1 if side=='right' else -1}"/>
+        <xacro:property name="reflect" value ="${1 if side=='right' else -1}"/>
 
         <link name="${prefix}link1">
             <visual>
@@ -55,49 +55,49 @@
         <link name="${prefix}link3">
             <visual>
                 <!--J3 v003/Part__Feature003.-->
-                <origin rpy="1.570796326794897 0 0" xyz="0.0 0.0987 0.02975"/>
+                <origin rpy="${pi * 0.5} 0 0" xyz="0.0 0.0987 0.02975"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j3v2_5nirfo.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <!--bound_obj__right_link3__col_J3_v2__BoundBox/col_J3_v2__BoundBox.-->
-                <origin rpy="1.5707963267948968 0 0" xyz="-0.0164466 -0.00045542 0.02975"/>
+                <origin rpy="${pi * 0.5} 0 0" xyz="-0.0164466 -0.00045542 0.02975"/>
                 <geometry>
                     <box size="0.08989101803441879 0.06999999999999983 0.05903276947803012"/>
                 </geometry>
             </collision>
             <inertial>
                 <mass value="0.4201676469910031"/>
-                <origin rpy="1.5707963267948968 0 0" xyz="-0.00688022 0.0 0.0282752"/>
+                <origin rpy="${pi * 0.5} 0 0" xyz="-0.00688022 0.0 0.0282752"/>
                 <inertia ixx="0.00020256001126230057" ixy="6.004247875311213e-06" ixz="1.3304903057525575e-06" iyy="0.0002970624991387495" iyz="5.980157765704868e-07" izz="0.00032889994351244413"/>
             </inertial>
         </link>
         <link name="${prefix}link4">
             <visual>
                 <!--J4 v002/Part__Feature004.-->
-                <origin rpy="-3.1415926535888543 -1.5620381439005742 0" xyz="-0.0986962 0.0 0.0621144"/>
+                <origin rpy="${pi} -1.5620381439005742 ${0 if side=='right' else pi}" xyz="${reflect*-0.0986962} 0.0 0.0621144"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j4v1_u1e2xn.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <!--bound_obj__right_link4__col_J4_v1__BoundBox/col_J4_v1__BoundBox.-->
-                <origin rpy="-3.14159265358886 -1.5620381439005742 0" xyz="0.000266276 -0.0125642 -0.132604"/>
+                <origin rpy="${pi} -1.5620381439005742 ${0 if side=='right' else pi}" xyz="${reflect*0.000266276} -0.0125642 -0.132604"/>
                 <geometry>
                     <box size="0.27584673777150337 0.08211429171582063 0.07186573179325861"/>
                 </geometry>
             </collision>
             <inertial>
                 <mass value="0.819475539373447"/>
-                <origin rpy="-3.14159265358886 -1.5620381439005742 0" xyz="0.000781326 -0.0019461 -0.132411"/>
+                <origin rpy="${pi} -1.5620381439005742 ${0 if side=='right' else pi}" xyz="${reflect*0.000781326} -0.0019461 -0.132411"/>
                 <inertia ixx="0.00044078452033976287" ixy="6.020023694043618e-05" ixz="0.00014637459261941218" iyy="0.009208791480530413" iyz="1.5469710436444469e-06" izz="0.009170539316023695"/>
             </inertial>
         </link>
         <link name="${prefix}link5">
             <visual>
                 <!--J5 v003/Part__Feature005.-->
-                <origin rpy="0 -0.008758182894317394 0" xyz="0.303864 0.0 -0.128451"/>
+                <origin rpy="${0 if side=='right' else pi} -0.008758182894317394 0" xyz="0.303864 0.0 ${(reflect*-0.128451) - 0 if side=='right' else 0.006}"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j5v2_ckk9an.dae"/>
                 </geometry>
@@ -224,7 +224,7 @@
             <parent link="${prefix}link1"/>
             <child link="${prefix}link2"/>
             <origin rpy="0 0 0" xyz="0.0 0.0 0.05325"/>
-            <axis xyz="0 0 1"/>
+            <axis xyz="0 0 ${reflect*1}"/>
             <limit effort="0.0" lower="-2.0943951023931953" upper="2.0943951023931953" velocity="0.0"/>
         </joint>
         <joint name="${prefix}rev2" type="revolute">
@@ -238,14 +238,14 @@
             <parent link="${prefix}link3"/>
             <child link="${prefix}link4"/>
             <origin rpy="-1.5707963267949054 0 -1.562038143900564" xyz="-0.0612477 -0.000536432 0.02975"/>
-            <axis xyz="0 0 1"/>
+            <axis xyz="0 0 ${reflect*1}"/>
             <limit effort="0.0" lower="-3.6651914291880923" upper="0.5235987755982988" velocity="0.0"/>
         </joint>
         <joint name="${prefix}rev4" type="revolute">
             <parent link="${prefix}link4"/>
             <child link="${prefix}link5"/>
             <origin rpy="-0.20701608758495998 -1.5707963267948566 -2.937419385117548" xyz="0.0297547 0.0 -0.24175"/>
-            <axis xyz="0 0 1"/>
+            <axis xyz="0 0 ${reflect*1}"/>
             <limit effort="0.0" lower="-0.3490658503988659" upper="2.792526803190927" velocity="0.0"/>
         </joint>
         <joint name="${prefix}rev5" type="revolute">
