@@ -4,8 +4,8 @@
 
   <xacro:include filename="openarm.xacro"/>
   <xacro:include filename="openarm_two_arms_pedestal.urdf"/>
-  <xacro:openarm prefix="left_" side="left"/>
-  <xacro:include filename="openarm_right.urdf"/>
+  <xacro:openarm prefix="right_" side="right"/>
+  <xacro:include filename="openarm_left.urdf"/>
 
   <joint name="dummy_joint" type="fixed">
     <parent link="world"/>
@@ -14,7 +14,7 @@
   </joint>
   <joint name="right_fix1" type="fixed">
     <parent link="pedestal_link"/>
-    <child link="l_J1_v002"/>
+    <child link="right_link1"/>
     <origin rpy="3.0144791747751833 -1.5707963267948324 0.12689401604101067" xyz="0.09 0.0 0.893"/>
   </joint>
   <joint name="left_fix1" type="fixed">

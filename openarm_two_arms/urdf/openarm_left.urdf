@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="openarm_two_arms">
-  <link name="l_base_link001">
+  <link name="left_link1">
     <visual>
       <!--base_link001/Part__Feature018.-->
       <origin rpy="3.1415926535897927 0 0" xyz="0.0 0.0 0.0007"/>
@@ -211,7 +211,7 @@
     </inertial>
   </link>
   <joint name="left_rev1" type="revolute">
-    <parent link="l_base_link001"/>
+    <parent link="left_link1"/>
     <child link="l_J2_v003"/>
     <origin rpy="-3.1415926535897922 0 -3.1415926535897927" xyz="0.0 0.0 -0.05325"/>
     <axis xyz="0 0 1"/>
