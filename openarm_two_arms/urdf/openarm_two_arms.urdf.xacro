@@ -5,7 +5,8 @@
   <xacro:include filename="openarm.xacro"/>
   <xacro:include filename="openarm_two_arms_pedestal.urdf"/>
   <xacro:openarm prefix="right_" side="right"/>
-  <xacro:include filename="openarm_left.urdf"/>
+  <xacro:openarm prefix="left_" side="left"/>
+  <!-- <xacro:include filename="openarm_left.urdf"/> -->
 
   <joint name="dummy_joint" type="fixed">
     <parent link="world"/>
