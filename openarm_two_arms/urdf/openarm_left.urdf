@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<robot name="openarm_two_arms">
+    <joint name="left_rev1" type="revolute">
+    <parent link="l_base_link001"/>
+    <child link="l_J2_v003"/>
+    <origin rpy="-3.1415926535897922 0 -3.1415926535897927" xyz="0.0 0.0 -0.05325"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.0" lower="-2.0943951023931953" upper="2.0943951023931953" velocity="0.0"/>
+  </joint>
+  <joint name="left_rev2" type="revolute">
+    <parent link="l_J2_v003"/>
+    <child link="l_J3_v004"/>
+    <origin rpy="-1.570796326794897 0 0" xyz="0.0 0.02975 0.04475"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.0" lower="-3.141592653589793" upper="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="left_rev3" type="revolute">
+    <parent link="l_J3_v004"/>
+    <child link="l_J4_v003"/>
+    <origin rpy="1.5707963267949063 0 1.5620381439005797" xyz="0.0612477 -0.000536432 -0.02975"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.0" lower="-3.6651914291880923" upper="0.5235987755982988" velocity="0.0"/>
+  </joint>
+  <joint name="left_rev4" type="revolute">
+    <parent link="l_J4_v003"/>
+    <child link="l_J5_v004"/>
+    <origin rpy="-3.0383286058327292 -1.5707963267948855 3.038328605832587" xyz="0.0297547 0.0 0.24175"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.0" lower="-2.792526803190927" upper="0.3490658503988659" velocity="0.0"/>
+  </joint>
+  <joint name="left_rev5" type="revolute">
+    <parent link="l_J5_v004"/>
+    <child link="l_J6_Left_v004"/>
+    <origin rpy="-1.5707963267949232 0.55693325005308 -1.5567303253382712" xyz="0.133937 0.00188408 0.0297547"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.0" lower="-2.0943951023931953" upper="2.0943951023931953" velocity="0.0"/>
+  </joint>
+  <joint name="left_rev6" type="revolute">
+    <parent link="l_J6_Left_v004"/>
+    <child link="l_J7_Left_v004"/>
+    <origin rpy="1.5707963267870033 -1.5567303253382319 -0.5569332500457352" xyz="0.0187648 0.0301352 0.12105"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="0.0"/>
+  </joint>
+  <joint name="left_rev7" type="revolute">
+    <parent link="l_J7_Left_v004"/>
+    <child link="l_J8_v003"/>
+    <origin rpy="-1.5707963267949518 0.008760073613296379 0.020777510312798276" xyz="0.000320989 -0.0154467 0.0355"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.0" lower="-0.9599310885968813" upper="0.9599310885968813" velocity="0.0"/>
+  </joint>
+  <joint name="left_left_pris1" type="prismatic">
+    <parent link="l_J8_v003"/>
+    <child link="l_left_jaw_v004"/>
+    <origin rpy="1.5707963267947693 0.020777510312786344 -0.008760073612368274" xyz="0.10571 -0.0786733 0.0132053"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.0" lower="-0.045" upper="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="left_right_pris2" type="prismatic">
+    <parent link="l_J8_v003"/>
+    <child link="l_right_jaw_v004"/>
+    <origin rpy="1.5707963267948966 0.020777510312787576 -0.008760073613237863" xyz="0.1071 0.0763207 0.0132053"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="0.0" lower="0.0" upper="0.045" velocity="0.0"/>
+    <mimic joint="left_left_pris1" multiplier="-1.0" offset="0.0"/>
+  </joint>
+</robot>

@@ -23,7 +23,7 @@ Visualization Manager:
       Value: true
       Enabled: false
   Global Options:
-    Fixed Frame: l_pedestal_02_urdf_v002
+    Fixed Frame: pedestal_link
     Frame Rate: 30
   Name: root
   Tools:
