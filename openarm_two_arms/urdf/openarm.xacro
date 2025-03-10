@@ -3,31 +3,31 @@
     <xacro:property name="side" value="right"/>
     <xacro:property name="prefix" value=""/>
 
-    <xacro:property name="pi" value="3.1415926535897927"/>
+    <!-- <xacro:property name="pi" value="3.1415926535897927"/> -->
     <!-- <xacro:property name="zero_pos" value="vertical"/> -->
 
 
     <xacro:macro name="openarm" params="side prefix">
-        <xacro:property name="reflect" value ="${(arm_side=='right') ? '1' : '-1'}"/>
+        <xacro:property name="reflect" value ="${ 1 if side=='right' else -1}"/>
 
         <link name="${prefix}link1">
             <visual>
                 <!--J1 v002/Part__Feature001.-->
-                <origin rpy="0 0 0" xyz="0.0 0.0 -0.0007"/>
+                <origin rpy="${0 if side=='right' else pi} 0 0" xyz="0.0 0.0 ${reflect*0.0007}"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j1v1_fj2ul1.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <!--bound_obj__right_link1__col_J1_v1__BoundBox/col_J1_v1__BoundBox.-->
-                <origin rpy="0 0 0" xyz="0.0 0.0 0.0289"/>
+                <origin rpy="${0 if side=='right' else pi} 0 0" xyz="0.0 0.0 ${reflect*0.0289}"/>
                 <geometry>
                     <box size="0.11 0.073 0.0592"/>
                 </geometry>
             </collision>
             <inertial>
                 <mass value="0.5769283920617254"/>
-                <origin rpy="0 0 0" xyz="0.0 2.52845e-05 0.0229621"/>
+                <origin rpy="${0 if side=='right' else pi} 0 0" xyz="0.0 2.52845e-05 0.0229621"/>
                 <inertia ixx="0.00034035167574060775" ixy="-2.623557985991217e-18" ixz="-6.093726095527621e-18" iyy="0.0004300058300010205" iyz="-5.09829482074806e-07" izz="0.0004802171432001996"/>
             </inertial>
         </link>
