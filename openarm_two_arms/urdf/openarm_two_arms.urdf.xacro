@@ -2,8 +2,9 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="openarm_two_arms">
   <link name="world"/>
 
+  <xacro:include filename="openarm.xacro"/>
   <xacro:include filename="openarm_two_arms_pedestal.urdf"/>
-  <xacro:include filename="openarm_left.urdf"/>
+  <xacro:openarm prefix="left_" side="left"/>
   <xacro:include filename="openarm_right.urdf"/>
 
   <joint name="dummy_joint" type="fixed">
@@ -18,7 +19,7 @@
   </joint>
   <joint name="left_fix1" type="fixed">
     <parent link="pedestal_link"/>
-    <child link="l_base_link001"/>
+    <child link="left_link1"/>
     <origin rpy="3.0186531925068127 -1.5707963267948268 0.12293946108298068" xyz="-0.09 0.0 0.893"/>
   </joint>
 </robot>

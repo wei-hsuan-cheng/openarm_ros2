@@ -1,0 +1,291 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:property name="side" value="right"/>
+    <xacro:property name="prefix" value=""/>
+    <!-- <xacro:property name="zero_pos" value="vertical"/> -->
+
+
+    <xacro:macro name="openarm" params="side prefix">
+        <xacro:if value="${side == 'left'}">
+            <xacro:property name="reflect" value ="-1"/>
+        </xacro:if>
+        <xacro:if value="${side == 'right'}">
+            <xacro:property name="reflect" value ="1"/>
+        </xacro:if>
+
+        <link name="${prefix}link1">
+            <visual>
+                <!--base_link001/Part__Feature018.-->
+                <origin rpy="3.1415926535897927 0 0" xyz="0.0 0.0 0.0007"/>
+                <geometry>
+                    <mesh filename="package://openarm_two_arms/meshes/full_upper_base_link_int1ku.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <!--bound_obj__left_link1__col_base_link__BoundBox/col_base_link__BoundBox.-->
+                <origin rpy="3.1415926535897927 0 0" xyz="0.0 0.0 -0.0289"/>
+                <geometry>
+                    <box size="0.11 0.073 0.0592"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.5769283920617254"/>
+                <origin rpy="3.1415926535897927 0 0" xyz="0.0 -2.52845e-05 -0.0229621"/>
+                <inertia ixx="0.00034035167574060564" ixy="-2.642617350904103e-18" ixz="-6.153994863823447e-18" iyy="0.00043000583000101937" iyz="-5.098294820747963e-07" izz="0.0004802171432001997"/>
+            </inertial>
+        </link>
+        <link name="${prefix}link2">
+            <visual>
+                <!--J2 v003/Part__Feature019.-->
+                <origin rpy="0 0 0" xyz="0.0 0.0 -0.05395"/>
+                <geometry>
+                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j2v2_gscnlc.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <!--bound_obj__left_link2__col_J2_v2__BoundBox/col_J2_v2__BoundBox.-->
+                <origin rpy="0 0 0" xyz="0.0 0.0 0.0371236"/>
+                <geometry>
+                    <box size="0.059000000014901216 0.08200000000000003 0.0742471498637348"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.16257504134917358"/>
+                <origin rpy="0 0 0" xyz="0.000225878 0.00183836 0.0278368"/>
+                <inertia ixx="0.00023903110213294341" ixy="-7.551692921099009e-08" ixz="1.128272336243354e-06" iyy="0.00010490798314778747" iyz="-5.907962783972549e-06" izz="0.00019737368685935768"/>
+            </inertial>
+        </link>
+        <link name="${prefix}link3">
+            <visual>
+                <!--J3 v004/Part__Feature020.-->
+                <origin rpy="1.5707963267948963 0 0" xyz="0.0 0.0987 -0.02975"/>
+                <geometry>
+                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j3v005_2vn1gz.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <!--bound_obj__left_link3__col_J3_v003__BoundBox/col_J3_v003__BoundBox.-->
+                <origin rpy="1.5707963267948961 0 0" xyz="0.0164466 -0.00044972 -0.02975"/>
+                <geometry>
+                    <box size="0.0898910738785183 0.06999999999999985 0.05902136986134156"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.42038984024444975"/>
+                <origin rpy="1.5707963267948961 0 0" xyz="0.00686697 0.0 -0.0282662"/>
+                <inertia ixx="0.00020276573635381913" ixy="5.353124426981602e-06" ixz="-1.2309719752249493e-06" iyy="0.0002972732820435537" iyz="-4.96881827890621e-07" izz="0.00032917425408263227"/>
+            </inertial>
+        </link>
+        <link name="${prefix}link4">
+            <visual>
+                <!--J4 v003/Part__Feature021.-->
+                <origin rpy="0 -1.5620381439005744 0" xyz="0.0986962 0.0 -0.0621144"/>
+                <geometry>
+                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j4v2_tzaxwp.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <!--bound_obj__left_link4__col_J4_v2__BoundBox/col_J4_v2__BoundBox.-->
+                <origin rpy="0 -1.5620381439005742 0" xyz="-0.000261608 0.0125645 0.132604"/>
+                <geometry>
+                    <box size="0.27584679830769426 0.08211367789676165 0.07185639591248483"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.8196402299327217"/>
+                <origin rpy="0 -1.5620381439005742 0" xyz="0.000770085 0.00195314 0.132431"/>
+                <inertia ixx="0.0004386639666889925" ixy="-6.080385269207883e-05" ixz="-7.68782221495183e-06" iyy="0.009210551548719602" iyz="-2.7878027653992583e-06" izz="0.00917471125137894"/>
+            </inertial>
+        </link>
+        <link name="${prefix}link5">
+            <visual>
+                <!--J5 v004/Part__Feature022.-->
+                <origin rpy="0 0.008758182894352118 0" xyz="-0.303864 0.0 -0.0689415"/>
+                <geometry>
+                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j5v005_didwyo.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <!--bound_obj__left_link5__col_J5_v003__BoundBox/col_J5_v003__BoundBox.-->
+                <origin rpy="0 0.008758182894352025 0" xyz="0.0539601 0.00265291 0.02931"/>
+                <geometry>
+                    <box size="0.1676296341613413 0.06430555048399128 0.08257859967140607"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.40867482543516"/>
+                <origin rpy="0 0.008758182894352111 0" xyz="0.0831878 0.00261036 0.0290107"/>
+                <inertia ixx="0.0003150152720598943" ixy="9.43251788631792e-06" ixz="-3.2155516327367085e-05" iyy="0.0012216556466064033" iyz="-1.3129824233752054e-06" izz="0.0010745148965932514"/>
+            </inertial>
+        </link>
+        <link name="${prefix}link6">
+            <visual>
+                <!--J6_Left v004/Part__Feature023.-->
+                <origin rpy="1.013924674457276 -1.5542266826921816 0" xyz="0.0485412 0.0860404 -0.437784"/>
+                <geometry>
+                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j6_leftv005_f8km11.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <!--bound_obj__left_link6__col_J6_Left_v003__BoundBox/col_J6_Left_v003__BoundBox.-->
+                <origin rpy="1.0139246744572885 -1.5542266826921818 0" xyz="0.00260793 0.0031292 0.0652641"/>
+                <geometry>
+                    <box size="0.1311435300470597 0.059534783253118076 0.08817198167731641"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.34433331594607314"/>
+                <origin rpy="1.0139246744572885 -1.5542266826921818 0" xyz="0.00885434 0.0135457 0.0439"/>
+                <inertia ixx="0.00019315823092440877" ixy="5.759960919860601e-07" ixz="3.928258332297235e-05" iyy="0.0003489300226703872" iyz="5.3866492677574926e-06" izz="0.00028834862800848534"/>
+            </inertial>
+        </link>
+        <link name="${prefix}link7">
+            <visual>
+                <!--J7_Left v004/Part__Feature024.-->
+                <origin rpy="0 0.008758182894514984 0" xyz="-0.558839 -0.00358671 -0.0632962"/>
+                <geometry>
+                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j7_leftv005_8ohvh2.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <!--bound_obj__left_link7__col_J7_Left_v003__BoundBox/col_J7_Left_v003__BoundBox.-->
+                <origin rpy="0 0.008758182894515429 0" xyz="0.000300274 0.00228799 0.0340015"/>
+                <geometry>
+                    <box size="0.05859778949354245 0.04469786051400639 0.08267618289454949"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.2782996911629702"/>
+                <origin rpy="0 0.008758182894515356 0" xyz="-8.771e-05 0.00414153 0.035427"/>
+                <inertia ixx="0.0001043910985422628" ixy="-4.0026347675757406e-07" ixz="1.0837675080533579e-07" iyy="0.00012327455405278424" iyz="-8.765964772332956e-08" izz="9.221516114206396e-05"/>
+            </inertial>
+        </link>
+        <link name="${prefix}link8">
+            <visual>
+                <!--J8 v003/Part__Feature025.-->
+                <origin rpy="1.570978323892347 0.02077671332575817 0" xyz="-0.557906 0.103687 0.0234745"/>
+                <geometry>
+                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j8v004_upij9o.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <!--bound_obj__left_link8__col_J8_v002__BoundBox/col_J8_v002__BoundBox.-->
+                <origin rpy="1.570978323892347 0.02077671332575817 0" xyz="0.0427524 -0.001079 0.0109925"/>
+                <geometry>
+                    <box size="0.1302624002952524 0.052571684700854236 0.1601213740691585"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.3126145274380216"/>
+                <origin rpy="1.570978323892347 0.020776713325758166 0" xyz="0.0607568 -0.000722767 0.00876618"/>
+                <inertia ixx="0.00023572179169416507" ixy="-7.789320420216956e-05" ixz="-2.111587909476847e-06" iyy="0.0005055124180887915" iyz="-1.5449610531695725e-06" izz="0.0003736712654123388"/>
+            </inertial>
+        </link>
+        <link name="${prefix}link_right_jaw">
+            <visual>
+                <!--right_jaw v004/Part__Feature027.-->
+                <origin rpy="3.141592653589774 0.008758182895214187 0" xyz="-0.662074 0.00352188 0.18819"/>
+                <geometry>
+                    <mesh filename="package://openarm_two_arms/meshes/full_upper_right_jawv003_5v80f0.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <!--bound_obj__left_right_jaw__col_right_jaw_v002_col_obj/col_right_jaw_v002_col_obj.-->
+                <origin rpy="3.141592653589774 0.00875818289521427 0" xyz="-0.662074 0.00352188 0.18819"/>
+                <geometry>
+                    <mesh filename="package://openarm_two_arms/meshes/full_upper_col_right_jaw_v002_col_obj_ln0sqy.dae"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.042981665301134495"/>
+                <origin rpy="3.141592653589774 0.008758182895214186 0" xyz="0.0189546 -0.00337688 0.0156207"/>
+                <inertia ixx="1.1399290012366144e-05" ixy="2.1100277903741056e-06" ixz="3.6731039885335394e-06" iyy="2.38634020443188e-05" iyz="-3.5503706410916235e-07" izz="3.0396785775073194e-05"/>
+            </inertial>
+        </link>
+        <link name="${prefix}link_left_jaw">
+            <visual>
+                <!--left_jaw v004/Part__Feature026.-->
+                <origin rpy="3.141592653589789 0.00875818289443215 0" xyz="-0.664789 0.00352188 0.0332134"/>
+                <geometry>
+                    <mesh filename="package://openarm_two_arms/meshes/full_upper_left_jawv003_9ggcxr.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <!--bound_obj__left_left_jaw__col_left_jaw_v002_col_obj/col_left_jaw_v002_col_obj.-->
+                <origin rpy="3.141592653589789 0.008758182894432077 0" xyz="-0.664789 0.00352188 0.0332134"/>
+                <geometry>
+                    <mesh filename="package://openarm_two_arms/meshes/full_upper_col_left_jaw_v002_col_obj_he8av6.dae"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.04297897856394934"/>
+                <origin rpy="3.141592653589789 0.008758182894432148 0" xyz="0.0184958 0.00151751 -0.0162764"/>
+                <inertia ixx="1.195285836430737e-05" ixy="-2.8053920115195855e-06" ixz="-3.983934744055433e-06" iyy="2.3656009736974273e-05" iyz="-4.864815166189635e-07" izz="3.047484533653199e-05"/>
+            </inertial>
+        </link>
+        <joint name="${prefix}rev1" type="revolute">
+            <parent link="${prefix}link1"/>
+            <child link="${prefix}link2"/>
+            <origin rpy="-3.1415926535897922 0 -3.1415926535897927" xyz="0.0 0.0 -0.05325"/>
+            <axis xyz="0 0 1"/>
+            <limit effort="0.0" lower="-2.0943951023931953" upper="2.0943951023931953" velocity="0.0"/>
+        </joint>
+        <joint name="${prefix}rev2" type="revolute">
+            <parent link="${prefix}link2"/>
+            <child link="${prefix}link3"/>
+            <origin rpy="-1.570796326794897 0 0" xyz="0.0 0.02975 0.04475"/>
+            <axis xyz="0 0 1"/>
+            <limit effort="0.0" lower="-3.141592653589793" upper="0.0" velocity="0.0"/>
+        </joint>
+        <joint name="${prefix}rev3" type="revolute">
+            <parent link="${prefix}link3"/>
+            <child link="${prefix}link4"/>
+            <origin rpy="1.5707963267949063 0 1.5620381439005797" xyz="0.0612477 -0.000536432 -0.02975"/>
+            <axis xyz="0 0 1"/>
+            <limit effort="0.0" lower="-3.6651914291880923" upper="0.5235987755982988" velocity="0.0"/>
+        </joint>
+        <joint name="${prefix}rev4" type="revolute">
+            <parent link="${prefix}link4"/>
+            <child link="${prefix}link5"/>
+            <origin rpy="-3.0383286058327292 -1.5707963267948855 3.038328605832587" xyz="0.0297547 0.0 0.24175"/>
+            <axis xyz="0 0 1"/>
+            <limit effort="0.0" lower="-2.792526803190927" upper="0.3490658503988659" velocity="0.0"/>
+        </joint>
+        <joint name="${prefix}rev5" type="revolute">
+            <parent link="${prefix}link5"/>
+            <child link="${prefix}link6"/>
+            <origin rpy="-1.5707963267949232 0.55693325005308 -1.5567303253382712" xyz="0.133937 0.00188408 0.0297547"/>
+            <axis xyz="0 0 1"/>
+            <limit effort="0.0" lower="-2.0943951023931953" upper="2.0943951023931953" velocity="0.0"/>
+        </joint>
+        <joint name="${prefix}rev6" type="revolute">
+            <parent link="${prefix}link6"/>
+            <child link="${prefix}link7"/>
+            <origin rpy="1.5707963267870033 -1.5567303253382319 -0.5569332500457352" xyz="0.0187648 0.0301352 0.12105"/>
+            <axis xyz="0 0 1"/>
+            <limit effort="0.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="0.0"/>
+        </joint>
+        <joint name="${prefix}rev7" type="revolute">
+            <parent link="${prefix}link7"/>
+            <child link="${prefix}link8"/>
+            <origin rpy="-1.5707963267949518 0.008760073613296379 0.020777510312798276" xyz="0.000320989 -0.0154467 0.0355"/>
+            <axis xyz="0 0 1"/>
+            <limit effort="0.0" lower="-0.9599310885968813" upper="0.9599310885968813" velocity="0.0"/>
+        </joint>
+        <joint name="${prefix}left_pris1" type="prismatic">
+            <parent link="${prefix}link8"/>
+            <child link="${prefix}link_left_jaw"/>
+            <origin rpy="1.5707963267947693 0.020777510312786344 -0.008760073612368274" xyz="0.10571 -0.0786733 0.0132053"/>
+            <axis xyz="0 0 1"/>
+            <limit effort="0.0" lower="-0.045" upper="0.0" velocity="0.0"/>
+        </joint>
+        <joint name="${prefix}right_pris2" type="prismatic">
+            <parent link="${prefix}link8"/>
+            <child link="${prefix}link_right_jaw"/>
+            <origin rpy="1.5707963267948966 0.020777510312787576 -0.008760073613237863" xyz="0.1071 0.0763207 0.0132053"/>
+            <axis xyz="0 0 1"/>
+            <limit effort="0.0" lower="0.0" upper="0.045" velocity="0.0"/>
+            <mimic joint="${prefix}left_pris1" multiplier="-1.0" offset="0.0"/>
+        </joint>
+    </xacro:macro>
+</robot>
