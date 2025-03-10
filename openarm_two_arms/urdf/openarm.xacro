@@ -125,7 +125,7 @@
         </link>
         <link name="${prefix}link7">
             <visual>
-                <origin rpy="0 ${reflect*-0.008758182894510852} 0" xyz="${reflect*0.558839} -0.00358671 -0.0631962"/>
+                <origin rpy="0 ${reflect*-0.008758182894510852 + rotate} 0" xyz="0.558839 ${reflect*-0.00358671 + (0 if side=='right' else -0.007)} ${reflect*-0.0631962 + (0 if side=='right' else 0.071)}"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/${'full_upper_j7v1_9yzky6.dae' if side=='right' else 'full_upper_j7_leftv005_8ohvh2.dae'}"/>
                 </geometry>
