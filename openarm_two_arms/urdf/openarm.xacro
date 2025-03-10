@@ -2,8 +2,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:property name="side" value="right"/>
     <xacro:property name="prefix" value=""/>
-
-    <!-- <xacro:property name="pi" value="3.1415926535897927"/> -->
     <!-- <xacro:property name="zero_pos" value="vertical"/> -->
 
 
@@ -13,14 +11,12 @@
 
         <link name="${prefix}link1">
             <visual>
-                <!--J1 v002/Part__Feature001.-->
                 <origin rpy="0 0 0" xyz="0.0 0.0 -0.0007"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j1v1_fj2ul1.dae"/>
                 </geometry>
             </visual>
             <collision>
-                <!--bound_obj__right_link1__col_J1_v1__BoundBox/col_J1_v1__BoundBox.-->
                 <origin rpy="0 0 0" xyz="0.0 0.0 0.0289"/>
                 <geometry>
                     <box size="0.11 0.073 0.0592"/>
@@ -34,14 +30,12 @@
         </link>
         <link name="${prefix}link2">
             <visual>
-                <!--J2 v002/Part__Feature002.-->
                 <origin rpy="0 0 0" xyz="0.0 0.0 -0.05395"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j2v1_xzm1cu.dae"/>
                 </geometry>
             </visual>
             <collision>
-                <!--bound_obj__right_link2__col_J2_v1__BoundBox/col_J2_v1__BoundBox.-->
                 <origin rpy="0 0 0" xyz="0.0 0.0 0.0371236"/>
                 <geometry>
                     <box size="0.0590000000149012 0.08200000000000002 0.0742471498637348"/>
@@ -55,14 +49,12 @@
         </link>
         <link name="${prefix}link3">
             <visual>
-                <!--J3 v003/Part__Feature003.-->
                 <origin rpy="${pi * 0.5} 0 0" xyz="0.0 0.0987 0.02975"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j3v2_5nirfo.dae"/>
                 </geometry>
             </visual>
             <collision>
-                <!--bound_obj__right_link3__col_J3_v2__BoundBox/col_J3_v2__BoundBox.-->
                 <origin rpy="${pi * 0.5} 0 0" xyz="-0.0164466 -0.00045542 0.02975"/>
                 <geometry>
                     <box size="0.08989101803441879 0.06999999999999983 0.05903276947803012"/>
@@ -76,14 +68,12 @@
         </link>
         <link name="${prefix}link4">
             <visual>
-                <!--J4 v002/Part__Feature004.-->
                 <origin rpy="${pi} -1.5620381439005742 0" xyz="-0.0986962 0.0 0.0621144"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j4v1_u1e2xn.dae"/>
                 </geometry>
             </visual>
             <collision>
-                <!--bound_obj__right_link4__col_J4_v1__BoundBox/col_J4_v1__BoundBox.-->
                 <origin rpy="${pi} -1.5620381439005742 0" xyz="0.000266276 -0.0125642 -0.132604"/>
                 <geometry>
                     <box size="0.27584673777150337 0.08211429171582063 0.07186573179325861"/>
@@ -97,14 +87,12 @@
         </link>
         <link name="${prefix}link5">
             <visual>
-                <!--J5 v003/Part__Feature005.-->
                 <origin rpy="0 -0.008758182894317394 0" xyz="0.303864 0.0 -0.128451"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j5v2_ckk9an.dae"/>
                 </geometry>
             </visual>
             <collision>
-                <!--bound_obj__right_link5__col_J5_v2__BoundBox/col_J5_v2__BoundBox.-->
                 <origin rpy="0 -0.008758182894316818 0" xyz="-0.0542814 0.00265291 -0.0302022"/>
                 <geometry>
                     <box size="0.16827213220625828 0.06430555048399171 0.08257859967140947"/>
@@ -118,14 +106,12 @@
         </link>
         <link name="${prefix}link6">
             <visual>
-                <!--J6 right_wrist/Part__Feature006.-->
-                <origin rpy="-2.1276679791326423 ${reflect* -1.5542266826921929} 0" xyz="${reflect*-0.0485412} -0.0860404 0.437784"/>
+                <origin rpy="${-2.1276679791326423*reflect + rotate} ${reflect* -1.5542266826921929} ${rotate}" xyz="${reflect*-0.0485412} ${reflect*-0.0860404} 0.437784"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/${'full_upper_j6v1_mg9rps.dae' if side=='right' else 'full_upper_j6_leftv005_f8km11.dae'}"/>
                 </geometry>
             </visual>
             <collision>
-                <!--bound_obj__right_link6__col_J6_v1__BoundBox/col_J6_v1__BoundBox.-->
                 <origin rpy="-2.127667979132636 -1.5542266826921927 0" xyz="-0.00260794 -0.00312921 -0.0652641"/>
                 <geometry>
                     <box size="0.13114353004704765 0.05953478325301745 0.08817196195081879"/>
@@ -139,14 +125,12 @@
         </link>
         <link name="${prefix}link7">
             <visual>
-                <!--J7 right v002/Part__Feature007.-->
                 <origin rpy="0 ${reflect*-0.008758182894510852} 0" xyz="${reflect*0.558839} -0.00358671 -0.0631962"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/${'full_upper_j7v1_9yzky6.dae' if side=='right' else 'full_upper_j7_leftv005_8ohvh2.dae'}"/>
                 </geometry>
             </visual>
             <collision>
-                <!--bound_obj__right_link7__col_J7_v1__BoundBox/col_J7_v1__BoundBox.-->
                 <origin rpy="0 -0.008758182894511114 0" xyz="-0.000318103 0.0022839 0.0340014"/>
                 <geometry>
                     <box size="0.058327402175132874 0.04432916698753661 0.08267601622411752"/>
@@ -160,14 +144,12 @@
         </link>
         <link name="${prefix}link8">
             <visual>
-                <!--J8 v002/Part__Feature008.-->
                 <origin rpy="1.5709195259578714 -0.014065461951077267 0" xyz="0.557948 0.103587 0.019724"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j8v1_dka5zq.dae"/>
                 </geometry>
             </visual>
             <collision>
-                <!--bound_obj__right_link8__col_J8_v1__BoundBox/col_J8_v1__BoundBox.-->
                 <origin rpy="1.5709195259578714 -0.01406546195107726 0" xyz="-0.042694 -0.000543176 0.0110286"/>
                 <geometry>
                     <box size="0.13038799671743653 0.05180887692688926 0.1601236763440867"/>
@@ -181,14 +163,12 @@
         </link>
         <link name="${prefix}link_left_jaw">
             <visual>
-                <!--left_jaw v002/Part__Feature009.-->
                 <origin rpy="0 -0.008758182894469432 0" xyz="0.665265 -0.00286677 -0.0209282"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_left_jawv1_6yxtlc.dae"/>
                 </geometry>
             </visual>
             <collision>
-                <!--bound_obj__right_left_jaw__col_left_jaw_v1_col_obj/col_left_jaw_v1_col_obj.-->
                 <origin rpy="0 -0.0087581828944695 0" xyz="0.665265 -0.00286677 -0.0209282"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_col_left_jaw_v1_col_obj_wr4fju.dae"/>
@@ -202,14 +182,12 @@
         </link>
         <link name="${prefix}link_right_jaw">
             <visual>
-                <!--right_jaw v002/Part__Feature010.-->
                 <origin rpy="0 -0.008758182898001485 0" xyz="0.665265 -0.00286677 -0.175928"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_right_jawv1_0fmgsg.dae"/>
                 </geometry>
             </visual>
             <collision>
-                <!--bound_obj__right_right_jaw__col_right_jaw_v1_col_obj/col_right_jaw_v1_col_obj.-->
                 <origin rpy="0 -0.008758182898001553 0" xyz="0.665265 -0.00286677 -0.175928"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_col_right_jaw_v1_col_obj_9qatoq.dae"/>
