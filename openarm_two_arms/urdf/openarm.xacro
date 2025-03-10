@@ -244,21 +244,21 @@
         <joint name="${prefix}rev4" type="revolute">
             <parent link="${prefix}link4"/>
             <child link="${prefix}link5"/>
-            <origin rpy="-0.20701608758495998 -1.5707963267948566 -2.937419385117548" xyz="0.0297547 0.0 -0.24175"/>
+            <origin rpy="${-0.20701608758495998 if side=='right' else -3.0383286058327292} -1.5707963267948566 ${-2.937419385117548 if side=='right' else 3.038328605832587}" xyz="0.0297547 0.0 ${reflect*-0.24175}"/>
             <axis xyz="0 0 1"/>
-            <limit effort="0.0" lower="-0.3490658503988659" upper="2.792526803190927" velocity="0.0"/>
+            <limit effort="0.0" lower="${-0.3490658503988659 if side=='right' else -2.792526803190927}" upper="${2.792526803190927 if side=='right' else 0.3490658503988659}" velocity="0.0"/>
         </joint>
         <joint name="${prefix}rev5" type="revolute">
             <parent link="${prefix}link5"/>
             <child link="${prefix}link6_right_wrist"/>
-            <origin rpy="1.5707963267948473 -0.5569332500492129 1.556730325338251" xyz="-0.133937 0.00188408 -0.0297547"/>
+            <origin rpy="${reflect*1.5707963267948473} ${reflect*-0.5569332500492129} 1.556730325338251" xyz="${reflect*-0.133937} 0.00188408 ${reflect*-0.0297547}"/>
             <axis xyz="0 0 1"/>
             <limit effort="0.0" lower="-2.0943951023931953" upper="2.0943951023931953" velocity="0.0"/>
         </joint>
         <joint name="${prefix}rev6" type="revolute">
             <parent link="${prefix}link6_right_wrist"/>
             <child link="${prefix}link7"/>
-            <origin rpy="-1.5707963268024898 -1.5567303253382425 -0.5569332500461536" xyz="-0.0187648 -0.0301352 -0.12105"/>
+            <origin rpy="${reflect*-1.5707963268024898} -1.5567303253382425 -0.5569332500461536" xyz="${reflect*-0.0187648} ${reflect*-0.0301352} ${reflect*-0.12105}"/>
             <axis xyz="0 0 1"/>
             <limit effort="0.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="0.0"/>
         </joint>
