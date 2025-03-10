@@ -11,6 +11,9 @@ Tested with:
 - [x] Jazzy
 - [x] Humble
 
+# TODO: 
+- [ ] Add results from true inertia tests to URDF
+
 ## License
 
 All packages of `openarm_ros2` are licensed under the [BSD-3-Clause](https://opensource.org/license/bsd-3-clause).
