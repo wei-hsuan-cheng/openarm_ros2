@@ -97,22 +97,22 @@
         <link name="${prefix}link5">
             <visual>
                 <!--J5 v003/Part__Feature005.-->
-                <origin rpy="0 -0.008758182894317394 0" xyz="0.303864 0.0 -0.128451"/>
+                <origin rpy="0 ${reflect*-0.008758182894317394} 0" xyz="${reflect*0.303864} 0.0 ${-0.128451 if side=='right' else -0.0689415"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j5v2_ckk9an.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <!--bound_obj__right_link5__col_J5_v2__BoundBox/col_J5_v2__BoundBox.-->
-                <origin rpy="0 -0.008758182894316818 0" xyz="-0.0542814 0.00265291 -0.0302022"/>
+                <origin rpy="0 ${reflect*-0.008758182894316818} 0" xyz="${reflect*-0.0542814} 0.00265291 ${reflect*-0.0302022}"/>
                 <geometry>
                     <box size="0.16827213220625828 0.06430555048399171 0.08257859967140947"/>
                 </geometry>
             </collision>
             <inertial>
                 <mass value="0.4086748254352304"/>
-                <origin rpy="0 -0.008758182894316905 0" xyz="-0.0831891 0.00251789 -0.0290107"/>
-                <inertia ixx="0.00031417157425298747" ixy="-1.1391566029536723e-05" ixz="-1.883474090056124e-05" iyy="0.001221711435313989" iyz="1.46725418421127e-06" izz="0.0010755135067660488"/>
+                <origin rpy="0 ${reflect*-0.008758182894316905} 0" xyz="${reflect*-0.0831891} 0.00251789 ${reflect*-0.0290107}"/>
+                <inertia ixx="0.00031417157425298747" ixy="${reflect*-1.1391566029536723e-05}" ixz="${reflect*-1.883474090056124e-05}" iyy="0.001221711435313989" iyz="${reflect*1.46725418421127e-06}" izz="0.0010755135067660488"/>
             </inertial>
         </link>
         <link name="${prefix}link6_right_wrist">
