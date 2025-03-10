@@ -119,7 +119,7 @@
         <link name="${prefix}link6">
             <visual>
                 <!--J6 right_wrist/Part__Feature006.-->
-                <origin rpy="${-2.1276679791326423 * reflect} ${reflect* -1.5542266826921929} 0" xyz="-0.0485412 -0.0860404 0.437784"/>
+                <origin rpy="-2.1276679791326423 ${reflect* -1.5542266826921929} 0" xyz="${reflect*-0.0485412} -0.0860404 0.437784"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/${'full_upper_j6v1_mg9rps.dae' if side=='right' else 'full_upper_j6_leftv005_f8km11.dae'}"/>
                 </geometry>
