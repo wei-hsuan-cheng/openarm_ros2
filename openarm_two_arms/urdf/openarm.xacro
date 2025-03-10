@@ -13,35 +13,35 @@
         <link name="${prefix}link1">
             <visual>
                 <!--J1 v002/Part__Feature001.-->
-                <origin rpy="${0 if side=='right' else pi} 0 0" xyz="0.0 0.0 -0.0007"/>
+                <origin rpy="0 0 0" xyz="0.0 0.0 -0.0007"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j1v1_fj2ul1.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <!--bound_obj__right_link1__col_J1_v1__BoundBox/col_J1_v1__BoundBox.-->
-                <origin rpy="${0 if side=='right' else pi} 0 0" xyz="0.0 0.0 0.0289"/>
+                <origin rpy="0 0 0" xyz="0.0 0.0 0.0289"/>
                 <geometry>
                     <box size="0.11 0.073 0.0592"/>
                 </geometry>
             </collision>
             <inertial>
                 <mass value="0.5769283920617254"/>
-                <origin rpy="${0 if side=='right' else pi} 0 0" xyz="0.0 2.52845e-05 0.0229621"/>
+                <origin rpy="0 0 0" xyz="0.0 2.52845e-05 0.0229621"/>
                 <inertia ixx="0.00034035167574060775" ixy="-2.623557985991217e-18" ixz="-6.093726095527621e-18" iyy="0.0004300058300010205" iyz="-5.09829482074806e-07" izz="0.0004802171432001996"/>
             </inertial>
         </link>
         <link name="${prefix}link2">
             <visual>
                 <!--J2 v002/Part__Feature002.-->
-                <origin rpy="${0 if side=='right' else pi} 0 0" xyz="0.0 0.0 -0.05395"/>
+                <origin rpy="0 0 0" xyz="0.0 0.0 -0.05395"/>
                 <geometry>
                     <mesh filename="package://openarm_two_arms/meshes/full_upper_j2v1_xzm1cu.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <!--bound_obj__right_link2__col_J2_v1__BoundBox/col_J2_v1__BoundBox.-->
-                <origin rpy="${0 if side=='right' else pi} 0 0" xyz="0.0 0.0 0.0371236"/>
+                <origin rpy="0 0 0" xyz="0.0 0.0 0.0371236"/>
                 <geometry>
                     <box size="0.0590000000149012 0.08200000000000002 0.0742471498637348"/>
                 </geometry>
@@ -223,7 +223,7 @@
         <joint name="${prefix}rev1" type="revolute">
             <parent link="${prefix}link1"/>
             <child link="${prefix}link2"/>
-            <origin rpy="${0 if side=='right' else -pi} ${0 if side=='right' else -pi} 0" xyz="0.0 0.0 0.05325"/>
+            <origin rpy="0 0 0" xyz="0.0 0.0 0.05325"/>
             <axis xyz="0 0 1"/>
             <limit effort="0.0" lower="-2.0943951023931953" upper="2.0943951023931953" velocity="0.0"/>
         </joint>
@@ -232,7 +232,7 @@
             <child link="${prefix}link3"/>
             <origin rpy="-1.5707963267948968 0 0" xyz="0.0 -0.02975 0.04475"/>
             <axis xyz="0 0 1"/>
-            <limit effort="0.0" lower="${0.0 if side=='right' else -pi}" upper="${pi if side=='right' else 0.0}" velocity="0.0"/>
+            <limit effort="0.0" lower="0.0" upper="${pi}" velocity="0.0"/>
         </joint>
         <joint name="${prefix}rev3" type="revolute">
             <parent link="${prefix}link3"/>
@@ -244,9 +244,9 @@
         <joint name="${prefix}rev4" type="revolute">
             <parent link="${prefix}link4"/>
             <child link="${prefix}link5"/>
-            <origin rpy="${-0.20701608758495998 if side=='right' else -3.0383286058327292} -1.5707963267948566 ${-2.937419385117548 if side=='right' else 3.038328605832587}" xyz="0.0297547 0.0 -0.24175"/>
+            <origin rpy="-0.20701608758495998 -1.5707963267948566 -2.937419385117548" xyz="0.0297547 0.0 -0.24175"/>
             <axis xyz="0 0 1"/>
-            <limit effort="0.0" lower="${-0.3490658503988659 if side=='right' else -2.792526803190927}" upper="${2.792526803190927 if side=='right' else 0.3490658503988659}" velocity="0.0"/>
+            <limit effort="0.0" lower="-0.3490658503988659" upper="2.792526803190927" velocity="0.0"/>
         </joint>
         <joint name="${prefix}rev5" type="revolute">
             <parent link="${prefix}link5"/>
