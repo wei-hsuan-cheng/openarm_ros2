@@ -1,6 +1,6 @@
 moveit_setup_assistant_config:
   urdf:
-    package: openarm_grip_description
+    package: openarm_description
     relative_path: urdf/openarm_grip.urdf
   srdf:
     relative_path: config/openarm_grip.srdf

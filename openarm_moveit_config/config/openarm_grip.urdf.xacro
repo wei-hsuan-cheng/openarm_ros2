@@ -3,7 +3,7 @@
     <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
 
     <!-- Import openarm_grip urdf file -->
-    <xacro:include filename="$(find openarm_grip_description)/urdf/openarm_grip.urdf" />
+    <xacro:include filename="$(find openarm_description)/urdf/openarm_grip.urdf" />
 
     <!-- Import control_xacro -->
     <xacro:include filename="openarm_grip.ros2_control.xacro" />

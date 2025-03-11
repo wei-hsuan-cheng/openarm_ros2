@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<robot name="openarm_bimanual_description">
+  <link name="pedestal_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://openarm_bimanual_description/meshes/pedestal_link.stl"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="${105/255} ${105/255} ${105/255} 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.489"/>
+      <geometry>
+        <box size="0.18 0.06 0.978000000000004"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="4.850309883435878"/>
+      <origin rpy="0 0 0" xyz="0.0 -0.0180451 0.410247"/>
+      <inertia ixx="0.6232810322991779" ixy="7.916644206828546e-12" ixz="-1.094192214704477e-11" iyy="0.6253514495087933" iyz="-0.03342233248166168" izz="0.02000994027356939"/>
+    </inertial>
+  </link>
+</robot>

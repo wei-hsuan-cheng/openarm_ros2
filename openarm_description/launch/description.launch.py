@@ -10,30 +10,38 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    pkg_share = Path(launch_ros.substitutions.FindPackageShare(package='openarm_description_2').find('openarm_description_2'))
-    default_model_path = pkg_share / 'urdf/openarm_wrapper.urdf.xacro'
+    pkg_share = Path(
+        launch_ros.substitutions.FindPackageShare(package="openarm_description").find(
+            "openarm_description"
+        )
+    )
+    default_model_path = pkg_share / "urdf/openarm_wrapper.urdf.xacro"
 
-    use_sim_time = LaunchConfiguration('use_sim_time')
-    use_sim_time_launch_arg = DeclareLaunchArgument('use_sim_time', default_value='true')
+    use_sim_time = LaunchConfiguration("use_sim_time")
+    use_sim_time_launch_arg = DeclareLaunchArgument("use_sim_time", default_value="true")
 
     robot_state_publisher_node = launch_ros.actions.Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
         parameters=[
             {
                 # ParameterValue is required to avoid being interpreted as YAML.
-                'robot_description': ParameterValue(Command(['xacro ', LaunchConfiguration('model')]), value_type=str),
-                'use_sim_time': use_sim_time,
+                "robot_description": ParameterValue(
+                    Command(["xacro ", LaunchConfiguration("model")]), value_type=str
+                ),
+                "use_sim_time": use_sim_time,
             },
         ],
     )
 
-    return launch.LaunchDescription([
-        launch.actions.DeclareLaunchArgument(
-            name='model',
-            default_value=str(default_model_path),
-            description="Absolute path to the robot's URDF file",
-        ),
-        use_sim_time_launch_arg,
-        robot_state_publisher_node,
-    ])
+    return launch.LaunchDescription(
+        [
+            launch.actions.DeclareLaunchArgument(
+                name="model",
+                default_value=str(default_model_path),
+                description="Absolute path to the robot's URDF file",
+            ),
+            use_sim_time_launch_arg,
+            robot_state_publisher_node,
+        ]
+    )
