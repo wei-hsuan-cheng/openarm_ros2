@@ -272,14 +272,14 @@
     <child link="right_link_left_jaw"/>
     <origin rpy="1.570796326795101 -0.014066001454929162 0.00875904933542146" xyz="-0.1071 0.0768568 0.0132053"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.0" lower="0.0" upper="0.045" velocity="0.0"/>
+    <limit effort="0.0" lower="0.0" upper="0.0451" velocity="0.0"/>
   </joint>
   <joint name="right_right_pris2" type="prismatic">
     <parent link="right_link8"/>
     <child link="right_link_right_jaw"/>
     <origin rpy="1.570796326794883 -0.014066001454927403 0.008759049336290027" xyz="-0.10571 -0.0781373 0.0132053"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.0" lower="0.0" upper="0.045" velocity="0.0"/>
+    <limit effort="0.0" lower="0.0" upper="0.0451" velocity="0.0"/>
     <mimic joint="right_left_pris1" multiplier="-1.0" offset="0.0"/>
   </joint>
   <link name="left_link1">
@@ -526,14 +526,14 @@
     <child link="left_link_left_jaw"/>
     <origin rpy="1.570796326795101 -0.014066001454929162 0.00875904933542146" xyz="-0.1071 0.0768568 0.0132053"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.0" lower="0.0" upper="0.045" velocity="0.0"/>
+    <limit effort="0.0" lower="0.0" upper="0.0451" velocity="0.0"/>
   </joint>
   <joint name="left_right_pris2" type="prismatic">
     <parent link="left_link8"/>
     <child link="left_link_right_jaw"/>
     <origin rpy="1.570796326794883 -0.014066001454927403 0.008759049336290027" xyz="-0.10571 -0.0781373 0.0132053"/>
     <axis xyz="0 0 1"/>
-    <limit effort="0.0" lower="0.0" upper="0.045" velocity="0.0"/>
+    <limit effort="0.0" lower="0.0" upper="0.0451" velocity="0.0"/>
     <mimic joint="left_left_pris1" multiplier="-1.0" offset="0.0"/>
   </joint>
   <joint name="dummy_joint" type="fixed">
