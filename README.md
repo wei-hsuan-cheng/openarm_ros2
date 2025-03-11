@@ -1,5 +1,6 @@
 # ROS2 packages for OpenArm robots
 
+- openarm_bimanual_description: urdf with pedestal torso and an openarm on each side
 - openarm_description: urdf with gripper actuator
 - openarm_moveit_config: motion planning with [moveit2](https://github.com/moveit/moveit2)
 
