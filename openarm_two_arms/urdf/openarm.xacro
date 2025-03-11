@@ -2,6 +2,9 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:property name="side" value="right"/>
     <xacro:property name="prefix" value=""/>
+    <material name="gray">
+        <color rgba="${105/255} ${105/255} ${105/255} 1.0"/>
+    </material>
     <!-- <xacro:property name="zero_pos" value="vertical"/> -->
 
 
@@ -13,8 +16,9 @@
             <visual>
                 <origin rpy="0 0 0" xyz="0.0 0.0 -0.0007"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/link1.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/link1.stl"/>
                 </geometry>
+                <material name="gray"/>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0.0 0.0 0.0289"/>
@@ -32,8 +36,9 @@
             <visual>
                 <origin rpy="0 0 0" xyz="0.0 0.0 -0.05395"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/link2.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/link2.stl"/>
                 </geometry>
+                <material name="gray"/>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0.0 0.0 0.0371236"/>
@@ -51,8 +56,9 @@
             <visual>
                 <origin rpy="${pi * 0.5} 0 0" xyz="0.0 0.0987 0.02975"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/link3.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/link3.stl"/>
                 </geometry>
+                <material name="gray"/>
             </visual>
             <collision>
                 <origin rpy="${pi * 0.5} 0 0" xyz="-0.0164466 -0.00045542 0.02975"/>
@@ -70,8 +76,9 @@
             <visual>
                 <origin rpy="${pi} -1.5620381439005742 0" xyz="-0.0986962 0.0 0.0621144"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/link4.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/link4.stl"/>
                 </geometry>
+                <material name="gray"/>
             </visual>
             <collision>
                 <origin rpy="${pi} -1.5620381439005742 0" xyz="0.000266276 -0.0125642 -0.132604"/>
@@ -89,8 +96,9 @@
             <visual>
                 <origin rpy="0 -0.008758182894317394 0" xyz="0.303864 0.0 -0.128451"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/link5.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/link5.stl"/>
                 </geometry>
+                <material name="gray"/>
             </visual>
             <collision>
                 <origin rpy="0 -0.008758182894316818 0" xyz="-0.0542814 0.00265291 -0.0302022"/>
@@ -108,8 +116,9 @@
             <visual>
                 <origin rpy="${-2.1276679791326423*reflect + rotate} ${reflect* -1.5542266826921929} ${rotate}" xyz="${reflect*-0.0485412 + (0 if side=='right' else 0.012)} ${reflect*-0.0860404 +(0 if side=='right' else 0.0018)} ${0.437784- (0 if side=='right' else 0.0023)}"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/${'link6_rightarm.dae' if side=='right' else 'link6_leftarm.dae'}"/>
+                    <mesh filename="package://openarm_two_arms/meshes/${'link6_rightarm.stl' if side=='right' else 'link6_leftarm.stl'}"/>
                 </geometry>
+                <material name="gray"/>
             </visual>
             <collision>
                 <origin rpy="-2.127667979132636 -1.5542266826921927 0" xyz="-0.00260794 -0.00312921 -0.0652641"/>
@@ -127,8 +136,9 @@
             <visual>
                 <origin rpy="0 ${reflect*-0.008758182894510852 + rotate} 0" xyz="0.558839 ${reflect*-0.00358671 + (0 if side=='right' else -0.007)} ${reflect*-0.0631962 + (0 if side=='right' else 0.071)}"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/${'link7_rightarm.dae' if side=='right' else 'link7_leftarm.dae'}"/>
+                    <mesh filename="package://openarm_two_arms/meshes/${'link7_rightarm.stl' if side=='right' else 'link7_leftarm.stl'}"/>
                 </geometry>
+                <material name="gray"/>
             </visual>
             <collision>
                 <origin rpy="0 -0.008758182894511114 0" xyz="-0.000318103 0.0022839 0.0340014"/>
@@ -146,8 +156,9 @@
             <visual>
                 <origin rpy="1.5709195259578714 -0.014065461951077267 0" xyz="0.557948 0.103587 0.019724"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/link8.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/link8.stl"/>
                 </geometry>
+                <material name="gray"/>
             </visual>
             <collision>
                 <origin rpy="1.5709195259578714 -0.01406546195107726 0" xyz="-0.042694 -0.000543176 0.0110286"/>
@@ -165,13 +176,14 @@
             <visual>
                 <origin rpy="0 -0.008758182894469432 0" xyz="0.665265 -0.00286677 -0.0209282"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/left_jaw.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/left_jaw.stl"/>
                 </geometry>
+                <material name="gray"/>
             </visual>
             <collision>
                 <origin rpy="0 -0.0087581828944695 0" xyz="0.665265 -0.00286677 -0.0209282"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/left_jaw.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/left_jaw.stl"/>
                 </geometry>
             </collision>
             <inertial>
@@ -184,13 +196,14 @@
             <visual>
                 <origin rpy="0 -0.008758182898001485 0" xyz="0.665265 -0.00286677 -0.175928"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/right_jaw.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/right_jaw.stl"/>
                 </geometry>
+                <material name="gray"/>
             </visual>
             <collision>
                 <origin rpy="0 -0.008758182898001553 0" xyz="0.665265 -0.00286677 -0.175928"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/right_jaw.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/right_jaw.stl"/>
                 </geometry>
             </collision>
             <inertial>
