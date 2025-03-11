@@ -2,10 +2,10 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="openarm_bimanual">
   <link name="world"/>
 
-  <xacro:include filename="$(find openarm_description)/urdf/openarm.urdf.xacro"/>
+  <xacro:include filename="$(find openarm_description)/urdf/openarm.xacro"/>
   <xacro:include filename="openarm_pedestal.urdf"/>
-  <xacro:openarm prefix="right_" side="right"/>
-  <xacro:openarm prefix="left_" side="left"/>
+  <xacro:openarm prefix="right_" side="right" zero_pos="arm"/>
+  <xacro:openarm prefix="left_" side="left" zero_pos="arm"/>
 
   <joint name="dummy_joint" type="fixed">
     <parent link="world"/>
