@@ -13,7 +13,7 @@
             <visual>
                 <origin rpy="0 0 0" xyz="0.0 0.0 -0.0007"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j1v1_fj2ul1.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/link1.dae"/>
                 </geometry>
             </visual>
             <collision>
@@ -32,7 +32,7 @@
             <visual>
                 <origin rpy="0 0 0" xyz="0.0 0.0 -0.05395"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j2v1_xzm1cu.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/link2.dae"/>
                 </geometry>
             </visual>
             <collision>
@@ -51,7 +51,7 @@
             <visual>
                 <origin rpy="${pi * 0.5} 0 0" xyz="0.0 0.0987 0.02975"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j3v2_5nirfo.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/link3.dae"/>
                 </geometry>
             </visual>
             <collision>
@@ -70,7 +70,7 @@
             <visual>
                 <origin rpy="${pi} -1.5620381439005742 0" xyz="-0.0986962 0.0 0.0621144"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j4v1_u1e2xn.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/link4.dae"/>
                 </geometry>
             </visual>
             <collision>
@@ -89,7 +89,7 @@
             <visual>
                 <origin rpy="0 -0.008758182894317394 0" xyz="0.303864 0.0 -0.128451"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j5v2_ckk9an.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/link5.dae"/>
                 </geometry>
             </visual>
             <collision>
@@ -108,7 +108,7 @@
             <visual>
                 <origin rpy="${-2.1276679791326423*reflect + rotate} ${reflect* -1.5542266826921929} ${rotate}" xyz="${reflect*-0.0485412 + (0 if side=='right' else 0.012)} ${reflect*-0.0860404 +(0 if side=='right' else 0.0018)} ${0.437784- (0 if side=='right' else 0.0023)}"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/${'full_upper_j6v1_mg9rps.dae' if side=='right' else 'full_upper_j6_leftv005_f8km11.dae'}"/>
+                    <mesh filename="package://openarm_two_arms/meshes/${'link6_rightarm.dae' if side=='right' else 'link6_leftarm.dae'}"/>
                 </geometry>
             </visual>
             <collision>
@@ -127,7 +127,7 @@
             <visual>
                 <origin rpy="0 ${reflect*-0.008758182894510852 + rotate} 0" xyz="0.558839 ${reflect*-0.00358671 + (0 if side=='right' else -0.007)} ${reflect*-0.0631962 + (0 if side=='right' else 0.071)}"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/${'full_upper_j7v1_9yzky6.dae' if side=='right' else 'full_upper_j7_leftv005_8ohvh2.dae'}"/>
+                    <mesh filename="package://openarm_two_arms/meshes/${'link7_rightarm.dae' if side=='right' else 'link7_leftarm.dae'}"/>
                 </geometry>
             </visual>
             <collision>
@@ -146,7 +146,7 @@
             <visual>
                 <origin rpy="1.5709195259578714 -0.014065461951077267 0" xyz="0.557948 0.103587 0.019724"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/full_upper_j8v1_dka5zq.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/link8.dae"/>
                 </geometry>
             </visual>
             <collision>
@@ -165,13 +165,13 @@
             <visual>
                 <origin rpy="0 -0.008758182894469432 0" xyz="0.665265 -0.00286677 -0.0209282"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/full_upper_left_jawv1_6yxtlc.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/left_jaw.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <origin rpy="0 -0.0087581828944695 0" xyz="0.665265 -0.00286677 -0.0209282"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/full_upper_col_left_jaw_v1_col_obj_wr4fju.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/left_jaw.dae"/>
                 </geometry>
             </collision>
             <inertial>
@@ -184,13 +184,13 @@
             <visual>
                 <origin rpy="0 -0.008758182898001485 0" xyz="0.665265 -0.00286677 -0.175928"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/full_upper_right_jawv1_0fmgsg.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/right_jaw.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <origin rpy="0 -0.008758182898001553 0" xyz="0.665265 -0.00286677 -0.175928"/>
                 <geometry>
-                    <mesh filename="package://openarm_two_arms/meshes/full_upper_col_right_jaw_v1_col_obj_9qatoq.dae"/>
+                    <mesh filename="package://openarm_two_arms/meshes/right_jaw.dae"/>
                 </geometry>
             </collision>
             <inertial>
