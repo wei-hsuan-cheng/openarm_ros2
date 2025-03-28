@@ -1,10 +1,10 @@
 # ROS2 packages for OpenArm robots
 
 - openarm_bimanual_description: humanoid upper body with two arms (urdf)
-- openarm_description: single arm (urdf)
-- openarm_moveit_config: motion planning with [moveit2](https://github.com/moveit/moveit2)
 - openarm_bringup: [ros2_control](https://control.ros.org/humble/index.html) bringup
+- openarm_description: single arm (urdf)
 - openarm_hardware: hardware interface for ros2_control
+- openarm_moveit_config: motion planning with [moveit2](https://github.com/moveit/moveit2)
 
 ## Description Packages
 
