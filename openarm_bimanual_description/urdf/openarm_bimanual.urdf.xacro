@@ -12,12 +12,12 @@
     <child link="pedestal_link"/>
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
   </joint>
-  <joint name="right_fixed1" type="fixed">
+  <joint name="left_fixed1" type="fixed">
     <parent link="pedestal_link"/>
     <child link="left_link1"/>
     <origin rpy="3.0144791747751833 -1.5707963267948324 0.12689401604101067" xyz="0.09 0.0 0.893"/>
   </joint>
-  <joint name="left_fixed1" type="fixed">
+  <joint name="right_fixed1" type="fixed">
     <parent link="pedestal_link"/>
     <child link="right_link1"/>
     <origin rpy="${3.0186531925068127 + pi} -1.5707963267948268 0.12293946108298068" xyz="-0.09 0.0 0.893"/>
