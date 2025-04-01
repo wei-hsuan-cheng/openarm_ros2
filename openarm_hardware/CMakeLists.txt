@@ -37,6 +37,9 @@ install(DIRECTORY include/
   DESTINATION include
 )
 
+install(TARGETS ${PROJECT_NAME}
+  DESTINATION bin
+)
 install(FILES
   openarm_hardware.xml
   DESTINATION share/${PROJECT_NAME}
