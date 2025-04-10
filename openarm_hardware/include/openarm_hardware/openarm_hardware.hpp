@@ -35,13 +35,22 @@
 namespace openarm_hardware
 {
 
-const std::vector<DM_Motor_Type> MOTORS_TYPES = {DM_Motor_Type::DM4340, DM_Motor_Type::DM4340, DM_Motor_Type::DM4340, DM_Motor_Type::DM4340, DM_Motor_Type::DM4310, DM_Motor_Type::DM4310, DM_Motor_Type::DM4310};
-const std::vector<uint16_t> CAN_DEVICE_IDS = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07};
-const std::vector<uint16_t> CAN_MASTER_IDS = {0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17};
-const std::vector<bool> MOTOR_WITH_TORQUE = {true,true,true,true,true,true,true};
-const Control_Type CONTROL_MODE = Control_Type::MIT;
-const double DEFAULT_KP = 1.0;
-const double DEFAULT_KD = 0.0;
+std::vector<DM_Motor_Type> motor_types{DM_Motor_Type::DM4340, DM_Motor_Type::DM4340, DM_Motor_Type::DM4340, DM_Motor_Type::DM4340, DM_Motor_Type::DM4310, DM_Motor_Type::DM4310, DM_Motor_Type::DM4310};
+std::vector<uint16_t> can_device_ids{0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07};
+std::vector<uint16_t> can_master_ids{0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17};
+static const Control_Type CONTROL_MODE = Control_Type::MIT;
+static const std::size_t ARM_DOF = 7;
+static const std::size_t GRIPPER_DOF = 1;
+static const std::size_t TOTAL_DOF = ARM_DOF + GRIPPER_DOF;
+static const std::array<double, TOTAL_DOF> KP = {80.0, 80.0, 20.0, 55.0, 5.0, 5.0, 5.0, 0.5};
+static const std::array<double, TOTAL_DOF> KD = {1.25, 0.17, 0.015, 0.07, 0.07, 0.05, 0.05, 0.01};
+static const std::array<double, TOTAL_DOF> SLOW_KP = {10.0, 10.0, 10.0, 7.5, 5.0, 5.0, 5.0, 0.5};
+static const double START_POS_TOLERANCE_RAD = 0.1;
+static const double POS_JUMP_TOLERANCE_RAD = 3.1415 / 2.0;
+
+static const bool USING_GRIPPER = true;
+static const double GRIPPER_REFERENCE_GEAR_RADIUS_M = 0.00853;
+static const int GRIPPER_INDEX = TOTAL_DOF - 1;
 
 class OpenArmHW : public hardware_interface::SystemInterface
 {
@@ -78,9 +87,11 @@ public:
   hardware_interface::return_type write(
     const rclcpp::Time & time, const rclcpp::Duration & period) override;
 
+  std::size_t curr_dof = ARM_DOF; // minus gripper
 private:
+  std::string prefix_;
   std::unique_ptr<CANBus> canbus_;
-  MotorControl motor_control_;
+  std::unique_ptr<MotorControl> motor_control_;
   std::vector<double> pos_commands_;
   std::vector<double> pos_states_;
   std::vector<double> vel_commands_;
@@ -88,6 +99,9 @@ private:
   std::vector<double> tau_ff_commands_;
   std::vector<double> tau_states_;
   std::vector<std::unique_ptr<Motor>> motors_;
+
+  void refresh_motors();
+  bool disable_torque_;
 };
 
 }  // namespace openarm_hardware

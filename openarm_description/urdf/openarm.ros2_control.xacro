@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <xacro:macro name="openarm_ros2_control" params="name initial_positions_file prefix:=''">
+    <xacro:macro name="openarm_ros2_control" params="name initial_positions_file prefix:='' can_device='can0'">
         <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
 
         <ros2_control name="${prefix}${name}" type="system">
             <hardware>
                 <!-- By default, set up controllers for simulation. This won't work on real hardware -->
-                <plugin>mock_components/GenericSystem</plugin>
+                <!-- <plugin>mock_components/GenericSystem</plugin> -->
                 <plugin>openarm_hardware/OpenArmHW</plugin>
+                <param name="prefix">${prefix}</param>
+                <param name="can_device">${can_device}</param>
             </hardware>
             <joint name="${prefix}rev1">
                 <command_interface name="position"/>
                 <command_interface name="velocity"/>
                 <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['rev1']}</param>
-                </state_interface>
+                <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <state_interface name="effort"/>
             </joint>
@@ -23,9 +23,7 @@
                 <command_interface name="position"/>
                 <command_interface name="velocity"/>
                 <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['rev2']}</param>
-                </state_interface>
+                <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <state_interface name="effort"/>
             </joint>
@@ -33,9 +31,7 @@
                 <command_interface name="position"/>
                 <command_interface name="velocity"/>
                 <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['rev3']}</param>
-                </state_interface>
+                <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <state_interface name="effort"/>
             </joint>
@@ -43,9 +39,7 @@
                 <command_interface name="position"/>
                 <command_interface name="velocity"/>
                 <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['rev4']}</param>
-                </state_interface>
+                <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <state_interface name="effort"/>
             </joint>
@@ -53,9 +47,7 @@
                 <command_interface name="position"/>
                 <command_interface name="velocity"/>
                 <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['rev5']}</param>
-                </state_interface>
+                <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <state_interface name="effort"/>
             </joint>
@@ -63,9 +55,7 @@
                 <command_interface name="position"/>
                 <command_interface name="velocity"/>
                 <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['rev6']}</param>
-                </state_interface>
+                <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <state_interface name="effort"/>
             </joint>
@@ -73,25 +63,21 @@
                 <command_interface name="position"/>
                 <command_interface name="velocity"/>
                 <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['rev7']}</param>
-                </state_interface>
+                <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <state_interface name="effort"/>
             </joint>
             <joint name="${prefix}left_pris1">
                 <command_interface name="position"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['left_pris1']}</param>
-                </state_interface>
+                <state_interface name="position"/>
                 <state_interface name="velocity"/>
             </joint>
 
-            <joint name="${prefix}right_pris2">
+            <!-- <joint name="${prefix}right_pris2">
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['left_pris1']}</param>
+                  <param name="initial_value">${initial_positions['right_pris2']}</param>
                 </state_interface>
-            </joint>
+            </joint> -->
 
         </ros2_control>
     </xacro:macro>
