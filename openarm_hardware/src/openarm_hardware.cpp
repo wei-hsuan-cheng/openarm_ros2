@@ -199,8 +199,6 @@ hardware_interface::return_type OpenArmHW::read(
 hardware_interface::return_type OpenArmHW::write(
   const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
-  disable_torque_ = false;
-
   if (disable_torque_){
     // refresh motor state on write
     for(size_t i = 0; i < TOTAL_DOF; ++i){
