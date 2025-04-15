@@ -188,6 +188,7 @@
                 <inertia ixx="0.00023465661366788053" ixy="7.609048882006294e-05" ixz="3.088694121124684e-07" iyy="0.0005065459365215377" iyz="1.9022818028658623e-07" izz="0.0003737029250058136"/>
             </inertial>
         </link>
+        <link name="${prefix}gripper_center"/>
         <link name="${prefix}link_left_jaw">
             <visual>
                 <origin rpy="0 -0.008758182894469432 0" xyz="0.665265 -0.00286677 -0.0209282"/>
@@ -234,7 +235,7 @@
             <origin rpy="0 0 0" xyz="0.0 0.0 0.05325"/>
             <axis xyz="0 0 1"/>
             <limit effort="0.0" lower="-2.0943951023931953" upper="2.0943951023931953" velocity="0.0"/>
-        </joint> 
+        </joint>
         <joint name="${prefix}rev2" type="revolute">
             <parent link="${prefix}link2"/>
             <child link="${prefix}link3"/>
@@ -291,6 +292,11 @@
             <axis xyz="0 0 1"/>
             <limit effort="0.0" lower="-0.0451" upper="0.0" velocity="0.0"/>
             <mimic joint="${prefix}left_pris1" multiplier="-1.0" offset="0.0"/>
+        </joint>
+        <joint name="${prefix}virtual_gripper_center" type="fixed">
+            <parent link="${prefix}link8"/>
+            <child link="${prefix}gripper_center"/>
+            <origin rpy="0 0 0" xyz="-0.13 0.00 0.0132053"/>
         </joint>
     </xacro:macro>
 </robot>
