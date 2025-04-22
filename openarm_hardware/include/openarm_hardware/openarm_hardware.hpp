@@ -43,13 +43,13 @@ static const std::size_t ARM_DOF = 7;
 static const std::size_t GRIPPER_DOF = 1;
 static const std::size_t TOTAL_DOF = ARM_DOF + GRIPPER_DOF;
 static const std::array<double, TOTAL_DOF> KP = {80.0, 80.0, 20.0, 55.0, 5.0, 5.0, 5.0, 0.5};
-static const std::array<double, TOTAL_DOF> KD = {1.25, 0.17, 0.015, 0.07, 0.07, 0.05, 0.05, 0.01};
-static const std::array<double, TOTAL_DOF> SLOW_KP = {10.0, 10.0, 10.0, 7.5, 5.0, 5.0, 5.0, 0.5};
+static const std::array<double, TOTAL_DOF> KD = {2.75, 2.5, 0.7, 0.4, 0.7, 0.6, 0.5, 0.1};
 static const double START_POS_TOLERANCE_RAD = 0.1;
-static const double POS_JUMP_TOLERANCE_RAD = 3.1415 / 2.0;
+static const double POS_JUMP_TOLERANCE_RAD = 3.1415 / 16.0;
 
 static const bool USING_GRIPPER = true;
 static const double GRIPPER_REFERENCE_GEAR_RADIUS_M = 0.00853;
+static const double GRIPPER_GEAR_DIRECTION_MULTIPLIER = -1.0;
 static const int GRIPPER_INDEX = TOTAL_DOF - 1;
 
 class OpenArmHW : public hardware_interface::SystemInterface

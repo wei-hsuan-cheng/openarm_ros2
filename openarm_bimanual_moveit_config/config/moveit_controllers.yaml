@@ -6,6 +6,8 @@ moveit_simple_controller_manager:
   controller_names:
     - left_arm_controller
     - right_arm_controller
+    - left_gripper_controller
+    - right_gripper_controller
 
   left_arm_controller:
     type: FollowJointTrajectory
@@ -30,4 +32,16 @@ moveit_simple_controller_manager:
       - right_rev6
       - right_rev7
     action_ns: follow_joint_trajectory
+    default: true
+  left_gripper_controller:
+    type: GripperCommand
+    joints:
+      - left_left_pris1
+    action_ns: gripper_cmd
+    default: true
+  right_gripper_controller:
+    type: GripperCommand
+    joints:
+      - right_left_pris1
+    action_ns: gripper_cmd
     default: true
