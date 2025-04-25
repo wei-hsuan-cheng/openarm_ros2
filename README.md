@@ -1,11 +1,19 @@
 # ROS2 packages for OpenArm robots
 
-- openarm_bimanual_description: humanoid upper body with two arms (urdf)
-- openarm_bringup: [ros2_control](https://control.ros.org/humble/index.html) bringup
-- openarm_description: single arm (urdf)
+[Quickstart](#installation)
+
+
+https://github.com/user-attachments/assets/90b44ef4-5cdc-4bf5-b56f-be2a5ff264b4
+
+
+
+- openarm_bimanual_description: dual arm urdf with torso and realsense head camera
+- openarm_bimanual_moveit_config: bimanual motion planning with OctoMap occupancy grid mapping
+- openarm_bimanual_bringup: setup scripts for bimanual openarm
+- openarm_bringup: setup scripts for single physical openarm
+- openarm_description: single arm urdf
 - openarm_hardware: hardware interface for ros2_control
 - openarm_moveit_config: motion planning with [moveit2](https://github.com/moveit/moveit2)
-
 
 
 ### Description Packages
@@ -21,10 +29,11 @@ https://github.com/user-attachments/assets/a0f962e5-6150-49ce-b18e-9914bcb322ef
 
 ## Installation
 
-1. [Install ROS2](https://docs.ros.org/en/humble/Installation.html) (Humble with Ubuntu 22.04 is recommended)
-2. [Create a ROS2 workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
+1. [Install ROS2 and ros-dev-tools](https://docs.ros.org/en/humble/Installation.html) (tested on Humble with Ubuntu 22.04)
+2. [Create a ROS2 workspace and source the overlay](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
 
 ```sh
+source /opt/ros/humble/setup.bash # change humble to your ROS2 distro
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
 git clone https://github.com/reazon-research/openarm_ros2.git
@@ -46,8 +55,15 @@ colcon build
 
 ```sh
 cd ~/ros2_ws
-. install/setup.bash
+source install/setup.bash
 ```
+
+5. Test the installation by launching a demo. It may be necessary to restart your computer once.
+
+```sh
+ros2 launch openarm_bimanual_moveit_config demo.launch.py
+```
+
 
 ## License
 
