@@ -13,8 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef OPENARM_HARDWARE__OPENARM_HARDWARE_HPP_
-#define OPENARM_HARDWARE__OPENARM_HARDWARE_HPP_
+#pragma once
 
 #include <string>
 #include <vector>
@@ -31,6 +30,7 @@
 #include "canbus.hpp"
 #include "motor.hpp"
 #include "motor_control.hpp"
+
 
 namespace openarm_hardware
 {
@@ -106,4 +106,3 @@ private:
 
 }  // namespace openarm_hardware
 
-#endif  // OPENARM_HARDWARE__OPENARM_HARDWARE_HPP_
