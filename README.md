@@ -36,13 +36,16 @@ Each link has a visual mesh and a collision mesh, as shown in the figures below:
 
 https://github.com/user-attachments/assets/a0f962e5-6150-49ce-b18e-9914bcb322ef
 
+---
+
 ## Installation
 
 1. [Install ROS2 and ros-dev-tools](https://docs.ros.org/en/humble/Installation.html) (tested on Humble with Ubuntu 22.04)
 2. [Create a ROS2 workspace and source the overlay](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
 
 ```sh
-source /opt/ros/humble/setup.bash # change humble to your ROS2 distro
+source /opt/ros/humble/setup.bash # Change "humble" to your ROS 2 distro, ie:
+                                  # source /opt/ros/jazzy/setup.bash 
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
 git clone https://github.com/reazon-research/openarm_ros2.git
@@ -57,6 +60,9 @@ rosdep update
 rosdep install --from-paths src -y --ignore-src -r
 
 sudo apt install -y python3-colcon-common-extensions
+
+#⚠️ If you're using ROS2 Iron or Jazzy, apply the patch below before building:
+
 colcon build
 ```
 
@@ -73,6 +79,28 @@ source install/setup.bash
 ros2 launch openarm_bimanual_moveit_config demo.launch.py
 ```
 
+
+## ROS2 Jazzy patch
+
+Edit the test source file:
+```sh
+nano ~/ros2_ws/src/openarm_ros2/openarm_hardware/test/test_openarm_hardware.cpp
+```
+Find the line:
+```sh
+  hardware_interface::ResourceManager rm(urdf);
+```
+Replace it with:
+```sh
+  ASSERT_NO_THROW({
+    auto logger = rclcpp::get_logger("test_logger");
+    auto clock = std::make_shared<rclcpp::Clock>(RCL_ROS_TIME);
+    hardware_interface::ResourceManager rm(urdf, clock, logger, true, 0);
+  });
+```
+Continue with the build.
+
+---
 
 ## License
 
