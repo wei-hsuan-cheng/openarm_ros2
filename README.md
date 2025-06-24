@@ -86,9 +86,9 @@ Edit the test source file:
 ```sh
 nano ~/ros2_ws/src/openarm_ros2/openarm_hardware/test/test_openarm_hardware.cpp
 ```
-Find the line:
+Find the line near the bottom:
 ```sh
-  hardware_interface::ResourceManager rm(urdf);
+  ASSERT_NO_THROW(hardware_interface::ResourceManager rm(urdf));
 ```
 Replace it with:
 ```sh
