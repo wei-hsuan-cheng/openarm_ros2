@@ -37,34 +37,52 @@ def generate_launch_description():
         description="Absolute path to the robot's URDF file",
     )
     side_arg = DeclareLaunchArgument(
-        name="side", default_value="right",  # Use "left" to test left arm.
-        description="Select arm side: 'left' or 'right'"
+        name="side",
+        default_value="right",  # Use "left" to test left arm.
+        description="Select arm side: 'left' or 'right'",
     )
     zero_pos_arg = DeclareLaunchArgument(
-        # Use "arm" to test alternative configuration.
-        name="zero_pos", default_value="up",
-        description="Specify zero position: 'up' or 'arm'"
+        name="zero_pos",
+        default_value="up",  # Use "arm" to test alternative configuration.
+        description="Specify zero position: 'up' or 'arm'",
     )
     prefix_arg = DeclareLaunchArgument(
-        name="prefix", default_value="",
-        description="Prefix for link and joint names (e.g., left_, right_)"
+        name="prefix",
+        default_value="",
+        description="Prefix for link and joint names (e.g., left_, right_)",
     )
     can_device_arg = DeclareLaunchArgument(
-        name="can_device", default_value="can0",
-        description="CAN device identifier to use"
+        name="can_device",
+        default_value="can0",
+        description="CAN device identifier to use",
+    )
+    hardware_type_arg = DeclareLaunchArgument(
+        name="hardware_type",
+        default_value="real",
+        description="Hardware interface type: 'real', 'sim' (MuJoCo), or 'mock'",
     )
 
     use_sim_time = LaunchConfiguration("use_sim_time")
     use_sim_time_launch_arg = DeclareLaunchArgument(
-        "use_sim_time", default_value="true")
+        "use_sim_time", default_value="true"
+    )
 
-    robot_description_command = Command([
-        "xacro ", LaunchConfiguration("model"),
-        " side:=", LaunchConfiguration("side"),
-        " zero_pos:=", LaunchConfiguration("zero_pos"),
-        " prefix:=", LaunchConfiguration("prefix"),
-        " can_device:=", LaunchConfiguration("can_device")
-    ])
+    robot_description_command = Command(
+        [
+            "xacro ",
+            LaunchConfiguration("model"),
+            " side:=",
+            LaunchConfiguration("side"),
+            " zero_pos:=",
+            LaunchConfiguration("zero_pos"),
+            " prefix:=",
+            LaunchConfiguration("prefix"),
+            " can_device:=",
+            LaunchConfiguration("can_device"),
+            " hardware_type:=",
+            LaunchConfiguration("hardware_type"),
+        ]
+    )
 
     robot_state_publisher_node = launch_ros.actions.Node(
         package="robot_state_publisher",
@@ -87,6 +105,7 @@ def generate_launch_description():
             zero_pos_arg,
             prefix_arg,
             can_device_arg,
+            hardware_type_arg,
             use_sim_time_launch_arg,
             robot_state_publisher_node,
         ]

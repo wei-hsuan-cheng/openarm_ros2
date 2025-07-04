@@ -12,9 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 cmake_minimum_required(VERSION 3.22)
-project(openarm_hardware)
+project(openarm_mujoco_hardware)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -26,12 +25,11 @@ find_package(hardware_interface REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
+find_package(Boost REQUIRED)
+find_package(nlohmann_json REQUIRED)
 
 add_library(${PROJECT_NAME} SHARED
-  src/openarm_hardware.cpp
-  src/canbus.cpp
-  src/motor.cpp
-  src/motor_control.cpp
+  src/openarm_mujoco_hardware.cpp
 )
 
 target_include_directories(
@@ -40,14 +38,17 @@ target_include_directories(
   include
 )
 
-ament_target_dependencies(${PROJECT_NAME}
+ament_target_dependencies(${PROJECT_NAME} PUBLIC
   hardware_interface
   pluginlib
   rclcpp
   rclcpp_lifecycle
 )
 
-pluginlib_export_plugin_description_file(hardware_interface openarm_hardware.xml)
+pluginlib_export_plugin_description_file(hardware_interface openarm_mujoco_hardware.xml)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE Boost::headers nlohmann_json::nlohmann_json)
+
 
 install(
   TARGETS ${PROJECT_NAME}
@@ -65,13 +66,13 @@ if(BUILD_TESTING)
   find_package(hardware_interface REQUIRED)
   find_package(ros2_control_test_assets REQUIRED)
 
-  ament_add_gmock(test_openarm_hardware
-    test/test_openarm_hardware.cpp
+  ament_add_gmock(test_openarm_mujoco_hardware
+    test/test_load_openarm_mujoco_hardware.cpp
   )
-  target_link_libraries(test_openarm_hardware
+  target_link_libraries(test_openarm_mujoco_hardware
     ${PROJECT_NAME}
   )
-  ament_target_dependencies(test_openarm_hardware
+  ament_target_dependencies(test_openarm_mujoco_hardware
     hardware_interface
     ros2_control_test_assets
   )
@@ -80,7 +81,6 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
-
 
 ament_export_include_directories(
   include
